@@ -1,0 +1,641 @@
+/* Global Styles for CyberArena Platform */
+/* This file contains all the CSS styles for the entire website */
+
+/* Reset default browser styles and set base font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base font and background color for the entire page */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #0a1929; /* Dark blue background */
+  color: #ffffff; /* White text */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main container for the page */
+.main-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+.header {
+  background-color: #0a1929;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styling */
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* Navigation menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #64b5f6; /* Light blue on hover */
+}
+
+/* Header action buttons */
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-login {
+  background-color: #64b5f6; /* Light blue background */
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #42a5f5;
+}
+
+.btn-signup {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #64b5f6; /* Light blue border */
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+  background-color: #64b5f6;
+}
+
+/* ============================================
+   HERO SECTION STYLES
+   ============================================ */
+.hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+/* Hero background - you can replace this with an actual game screenshot */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #1565c0 100%);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a237e" width="1200" height="600"/><path d="M0,300 Q300,200 600,300 T1200,300" stroke="%2364b5f6" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Hero content overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-tagline {
+  font-size: 1.3rem;
+  color: #e3f2fd;
+  font-weight: 300;
+}
+
+/* Xbox logo on the right */
+.hero-logo {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.xbox-logo {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+/* ============================================
+   GAME CATEGORY SECTION STYLES
+   ============================================ */
+.game-category {
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.category-container {
+  margin-bottom: 3rem;
+}
+
+/* Category header with title and description */
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.category-description {
+  font-size: 1rem;
+  color: #b0bec5;
+  max-width: 400px;
+}
+
+/* Games row - horizontal scrollable container */
+.games-row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #64b5f6 #0a1929;
+}
+
+.games-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.games-row::-webkit-scrollbar-track {
+  background: #0a1929;
+}
+
+.games-row::-webkit-scrollbar-thumb {
+  background: #64b5f6;
+  border-radius: 4px;
+}
+
+/* Individual game card */
+.game-card {
+  min-width: 200px;
+  background-color: transparent;
+  border: 2px solid #64b5f6; /* Light blue border */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(100, 181, 246, 0.3);
+}
+
+/* Game cover image */
+.game-cover {
+  width: 100%;
+  height: 250px;
+  background-color: #1a237e;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #64b5f6;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+}
+
+/* Game information below cover */
+.game-info {
+  padding: 1rem;
+  background-color: #0a1929;
+}
+
+.game-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.game-developer {
+  font-size: 0.9rem;
+  color: #b0bec5;
+}
+
+.game-developer span {
+  color: #64b5f6;
+}
+
+/* View All link */
+.view-all {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.view-all-link {
+  color: #64b5f6;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: #42a5f5;
+}
+
+/* ============================================
+   PLATFORM FEATURES SECTION STYLES
+   ============================================ */
+.platform-features {
+  padding: 4rem 2rem;
+  background-color: #0d1929;
+  margin-top: 3rem;
+}
+
+.features-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+/* Features grid - three cards in a row */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual feature card */
+.feature-card {
+  background-color: #0a1929;
+  border: 2px solid #64b5f6;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(100, 181, 246, 0.3);
+}
+
+/* Feature icon */
+.feature-icon {
+  color: #64b5f6;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #b0bec5;
+}
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+.footer {
+  background-color: #0a1929;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Footer copyright */
+.footer-copyright p {
+  color: #b0bec5;
+  font-size: 0.9rem;
+}
+
+/* Footer navigation links */
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-link {
+  color: #b0bec5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #64b5f6;
+}
+
+.footer-separator {
+  color: #b0bec5;
+}
+
+/* Social media icons */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #b0bec5;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  color: #64b5f6;
+}
+
+/* ============================================
+   APP BAR STYLES (for common components)
+   ============================================ */
+.app-bar {
+  background-color: #0a1929;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-bar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-bar-logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.app-bar-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.app-bar-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.app-bar-link:hover {
+  color: #64b5f6;
+}
+
+/* ============================================
+   LOGIN FORM STYLES
+   ============================================ */
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #0d1929;
+  border: 2px solid #64b5f6;
+  border-radius: 8px;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #b0bec5;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background-color: #0a1929;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #64b5f6;
+}
+
+.btn-login-submit {
+  background-color: #64b5f6;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login-submit:hover {
+  background-color: #42a5f5;
+}
+
+/* ============================================
+   BLOG PAGE STYLES
+   ============================================ */
+.blog-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+.blog-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.blog-container p {
+  font-size: 1.1rem;
+  color: #b0bec5;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-login,
+  .btn-signup {
+    width: 100%;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .game-card {
+    min-width: 150px;
+  }
+}
+
