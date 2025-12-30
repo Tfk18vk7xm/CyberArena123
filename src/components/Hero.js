@@ -10,16 +10,14 @@ export default function Hero() {
       {/* Content overlay on top of background */}
       <div className="hero-content">
         {/* Main heading - the big call to action */}
-        <h1 className="hero-title">DISCOVER & PLAY INDIE GAMES INSTANTLY</h1>
-        
+        <h1 className="hero-title">
+          DISCOVER & PLAY INDIE GAMES INSTANTLY
+        </h1>        
         {/* Subtitle/tagline */}
-        <p className="hero-tagline">Join a growing community and explore something unique</p>
+        <p className="hero-tagline"><b>Join a growing community and explore something unique</b></p>
       </div>
 
-      {/* Xbox logo on the right side */}
-      <div className="hero-logo">
-        <div className="xbox-logo">XBOX</div>
-      </div>
+     
     </section>
   )
 }
