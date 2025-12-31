@@ -20,7 +20,7 @@ export default function Header() {
 
         {/* Action buttons on the right */}
         <div className="header-actions">
-          <button className="btn-login">Login</button>
+          <a href="/login" className="btn-login">Login</a>
           <button className="btn-signup">Sign Up</button>
         </div>
       </div>

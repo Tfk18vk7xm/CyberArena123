@@ -1,0 +1,155 @@
+// Games page - Displays all games for a specific category
+// This page shows 10 games in a 2x5 grid layout (2 rows, 5 columns)
+// Users are redirected here when clicking "View All Games" from any category section
+
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+// Game data for each category - Each category has 10 games
+// This matches the data structure used in the landing page
+const gameCategories = {
+  featured: {
+    title: 'FEATURED GAMES',
+    description: 'Handpicked featured games found by the community',
+    games: [
+      { name: "Stellar Blade", developer: "dev_stellar", image: "https://tse2.mm.bing.net/th/id/OIP.t2jFR3NZMezsHmIwTBTX3QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Need For Speed", developer: "dev_nfs", image: "https://th.bing.com/th/id/OIP.9ZRHAfPDQ1I2n0CrIqRvSgHaEK?w=280&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Fortnite", developer: "dev_fortnite", image: "https://tse4.mm.bing.net/th/id/OIP.C5A17VtI1jviPImGPZqAXgHaEK?pid=ImgDet&w=178&h=99&c=7&dpr=1.5&o=7&rm=3" },
+      { name: "WWE 2K24", developer: "dev_nba", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/59f0f0b7-ac9c-4bb3-947e-bc0e3be8398a/dgetpv5-ff390344-50bb-4caa-a04c-fff4e117d91c.jpg/v1/fill/w_1024,h_1290,q_75,strp/wwe_2k24_cover_design_11___roman_reigns_by_cngjl1986_dgetpv5-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI5MCIsInBhdGgiOiJcL2ZcLzU5ZjBmMGI3LWFjOWMtNGJiMy05NDdlLWJjMGUzYmU4Mzk4YVwvZGdldHB2NS1mZjM5MDM0NC01MGJiLTRjYWEtYTA0Yy1mZmY0ZTExN2Q5MWMuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.zPFxpdWIWNUdVf9o43-4ZX3Ms7dtsCfVLVU7I3WnZgg" },
+      { name: "Fable Legends", developer: "dev_fable", image: "https://images.alphacoders.com/655/655398.jpg" },
+      { name: "Mortal Kombat 1", developer: "dev_mk", image: "https://cdn1.epicgames.com/offer/fda0f2b4047f46ffb4e94d5595c1468e/EGS_MortalKombat1PremiumEdition_NetherRealmStudios_Editions_S1_2560x1440-43d47cfc125118b13b26cea9c80ae15c" },
+      { name: "The Witcher 3", developer: "dev_witcher", image: "https://cdn.mos.cms.futurecdn.net/rjhoJx3c4TR8H5kXjYpUKm.jpg" },
+      { name: "Cyberpunk 2077", developer: "dev_cyberpunk", image: "https://cdn1.epicgames.com/offer/carousel/cyberpunk-2077_1200x1600-1200x1600-405c9c60e3c1c100d8e0baa36f60b955" },
+      { name: "Red Dead Redemption 2", developer: "dev_rdr2", image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" },
+      { name: "Horizon Zero Dawn", developer: "dev_horizon", image: "https://cdn1.epicgames.com/offer/carousel/HZD_1200x1600_1200x1600-4c0b5c5e0b3e5c0b5c5e0b3e5c0b5c5e" }
+    ]
+  },
+  popular: {
+    title: 'POPULAR GAMES',
+    description: 'Trending games loved by the community',
+    games: [
+      { name: "GTA V", developer: "dev_gta", image: "https://tse2.mm.bing.net/th/id/OIP.CjjkN8QUmOp0whkyl-7g5AHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Call of Duty", developer: "dev_cod", image: "https://tse3.mm.bing.net/th/id/OIP.HCb9qcYZmDUtf_FFHTdWSwHaFP?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Valorant", developer: "dev_valorant", image: "https://editors.dexerto.com/wp-content/uploads/2020/12/breach-and-sage-2.jpg" },
+      { name: "Hollow Knight", developer: "dev_hollow", image: "https://th.bing.com/th/id/OIP.QHEXc9DyAPMC-00O2gRjrAHaEu?w=281&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Undertale", developer: "dev_undertale", image: "https://www.kolpaper.com/wp-content/uploads/2020/05/Undertale-Wallpaper.jpg" },
+      { name: "Hades", developer: "dev_hades", image: "https://store-images.s-microsoft.com/image/apps.48496.14093828725404571.e8c4fd85-da7e-4c33-9a85-c97c9f3eeb38.fde6f3ed-4a08-4bb8-8240-9cd19e049803" },
+      { name: "Among Us", developer: "dev_amongus", image: "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg" },
+      { name: "Fall Guys", developer: "dev_fallguys", image: "https://cdn2.unrealengine.com/egs-fallguys-mediatonic-g1a-00-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080.jpg" },
+      { name: "Apex Legends", developer: "dev_apex", image: "https://cdn1.epicgames.com/offer/carousel/apex-legends_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "Rocket League", developer: "dev_rocket", image: "https://cdn1.epicgames.com/offer/carousel/rocket-league_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" }
+    ]
+  },
+  racing: {
+    title: 'RACING GAMES',
+    description: 'Fast-paced racing action',
+    games: [
+      { name: "F1 23", developer: "dev_f1", image: "https://tse2.mm.bing.net/th/id/OIP.l_Tv70M8jw5Eg8Rge8WxMwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Need For Speed", developer: "dev_nfs", image: "https://th.bing.com/th/id/OIP.9ZRHAfPDQ1I2n0CrIqRvSgHaEK?w=280&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Asphalt 9", developer: "dev_asphalt", image: "https://vignette.wikia.nocookie.net/asphalt/images/2/22/A9_1.0_icon.png/revision/latest?cb=20180420125431" },
+      { name: "Dirt 5", developer: "dev_dirt", image: "https://th.bing.com/th/id/OIP.nWQffnCMYtWLHGcfFsvN6gHaEK?w=281&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Hot Wheels Unleashed", developer: "dev_hotwheels", image: "https://tse1.mm.bing.net/th/id/OIP.Or1YxLr7MlYb7-n3TfZSCwHaEd?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Mario Kart", developer: "dev_mario", image: "https://tse1.mm.bing.net/th/id/OIP.V8_waXQCHG7uy6g5fpGSngHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Forza Horizon 5", developer: "dev_forza", image: "https://cdn1.epicgames.com/offer/carousel/forza-horizon-5_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "Gran Turismo 7", developer: "dev_gt7", image: "https://cdn.mos.cms.futurecdn.net/8qJqJqJqJqJqJqJqJqJqJq.jpg" },
+      { name: "Trackmania", developer: "dev_trackmania", image: "https://cdn1.epicgames.com/offer/carousel/trackmania_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "WRC 10", developer: "dev_wrc", image: "https://cdn1.epicgames.com/offer/carousel/wrc-10_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" }
+    ]
+  },
+  action: {
+    title: 'ACTION GAMES',
+    description: 'Thrilling action-packed adventures',
+    games: [
+      { name: "NBA 2K24", developer: "dev_nba", image: "https://th.bing.com/th/id/OIP.Ofg-uFWstIeAqXH9GEqC4QHaI5?w=149&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Tekken 8", developer: "dev_tekken", image: "https://assets-prd.ignimgs.com/2022/09/15/tekken8-1663261659390.jpg" },
+      { name: "Assassin's Creed", developer: "dev_ac", image: "https://tse3.mm.bing.net/th/id/OIP.MWv957MVXpqNhT3ayDZzNgHaKc?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { name: "Elden Ring", developer: "dev_elden", image: "https://static.bandainamcoent.eu/high/elden-ring/elden-ring/00-page-setup/elden-ring-new-header-mobile.jpg" },
+      { name: "Spider-Man", developer: "dev_spiderman", image: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/spider-man.jpeg" },
+      { name: "God of War", developer: "dev_gow", image: "https://image.api.playstation.com/vulcan/img/rnd/202010/2217/ax0V5TYMax06mLzmkWeQMiwH.jpg" },
+      { name: "Devil May Cry 5", developer: "dev_dmc5", image: "https://cdn1.epicgames.com/offer/carousel/devil-may-cry-5_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "Doom Eternal", developer: "dev_doom", image: "https://cdn1.epicgames.com/offer/carousel/doom-eternal_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "Sekiro", developer: "dev_sekiro", image: "https://cdn1.epicgames.com/offer/carousel/sekiro_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "Dark Souls 3", developer: "dev_darksouls", image: "https://cdn1.epicgames.com/offer/carousel/dark-souls-3_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" }
+    ]
+  }
+}
+
+export default function GamesPage() {
+  // useRouter hook from Next.js to get URL query parameters
+  // This allows us to know which category the user wants to view
+  const router = useRouter()
+  const { category } = router.query
+
+  // Get the category data based on the URL parameter
+  // If category doesn't exist or is invalid, default to 'featured'
+  const categoryData = gameCategories[category] || gameCategories.featured
+
+  return (
+    <div>
+      {/* Head component - Sets the page title and meta tags */}
+      <Head>
+        <title>{categoryData.title} - CyberArena</title>
+        <meta name="description" content={categoryData.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Main container for the entire page */}
+      <main className="main-container">
+        {/* Header component - Top navigation bar */}
+        <Header />
+
+        {/* Games section container */}
+        <section className="games-page">
+          <div className="games-page-container">
+            {/* Category header with title and description */}
+            <div className="category-header">
+              <div>
+                <h1 className="category-title">{categoryData.title}</h1>
+                <p className="category-description">{categoryData.description}</p>
+              </div>
+              {/* Back button to return to homepage */}
+              <a href="/" className="back-button">← Back to Home</a>
+            </div>
+
+            {/* Games grid - 2 rows x 5 columns = 10 games total */}
+            {/* This creates a responsive grid that displays games in a 2x5 layout */}
+            <div className="games-grid">
+              {categoryData.games.map((game, index) => (
+                <div key={index} className="game-card-grid">
+                  {/* Game cover image */}
+                  <div className="game-cover-grid">
+                    {game.image ? (
+                      <img
+                        src={game.image}
+                        alt={game.name}
+                        className="game-image-grid"
+                      />
+                    ) : (
+                      <div className="game-image-placeholder">
+                        {game.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Game information below the image */}
+                  <div className="game-info-grid">
+                    <h3 className="game-name-grid">{game.name}</h3>
+                    <p className="game-developer-grid">
+                      Developed by: <span>{game.developer}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Footer component - Bottom section with links and social media */}
+        <Footer />
+      </main>
+    </div>
+  )
+}
+

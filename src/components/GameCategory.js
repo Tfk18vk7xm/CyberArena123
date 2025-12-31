@@ -1,7 +1,13 @@
 // GameCategory component - Displays a horizontal row of game cards
 // Props: title (section title), description (subtitle), games (array of game objects)
+// This component shows a preview of games and links to the full games page
 
-export default function GameCategory({ title, description, games }) {
+export default function GameCategory({ title, description, games, category }) {
+  // Convert title to lowercase and replace spaces with hyphens for URL
+  // Example: "FEATURED GAMES" -> "featured"
+  // This creates a URL-friendly category identifier
+  // If category prop is provided, use it; otherwise generate from title
+  const categorySlug = category || title.toLowerCase().replace(/\s+/g, '-').replace(/-games$/, '').replace(/games$/, '').trim()
   return (
     <section className="game-category">
       <div className="category-container">
@@ -42,8 +48,10 @@ export default function GameCategory({ title, description, games }) {
         </div>
 
         {/* View All link on the right */}
+        {/* This link redirects to the games page with the category as a query parameter */}
+        {/* Example: /games?category=featured */}
         <div className="view-all">
-          <a href="#" className="view-all-link">
+          <a href={`/games?category=${categorySlug}`} className="view-all-link">
             View All Games →
           </a>
         </div>
