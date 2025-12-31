@@ -26,7 +26,9 @@ export default function Home() {
         <Hero />
         
         {/* Featured Games section */}
+        {/* id="featured-games" allows smooth scrolling when clicking "Discover" link */}
         {/* category prop is used to create the URL for "View All Games" link */}
+        <div id="featured-games">
         <GameCategory 
           title="FEATURED GAMES"
           description="Handpicked featured games found by the community"
@@ -44,6 +46,7 @@ export default function Home() {
             { name: "Horizon Zero Dawn", developer: "dev_horizon",image:"https://cdn1.epicgames.com/offer/carousel/HZD_1200x1600_1200x1600-4c0b5c5e0b3e5c0b5c5e0b3e5c0b5c5e" }
           ]}
         />
+        </div>
         
         {/* Popular Games section */}
         <GameCategory 

@@ -19,11 +19,11 @@ const gameCategories = {
       { name: "Fortnite", developer: "dev_fortnite", image: "https://tse4.mm.bing.net/th/id/OIP.C5A17VtI1jviPImGPZqAXgHaEK?pid=ImgDet&w=178&h=99&c=7&dpr=1.5&o=7&rm=3" },
       { name: "WWE 2K24", developer: "dev_nba", image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/59f0f0b7-ac9c-4bb3-947e-bc0e3be8398a/dgetpv5-ff390344-50bb-4caa-a04c-fff4e117d91c.jpg/v1/fill/w_1024,h_1290,q_75,strp/wwe_2k24_cover_design_11___roman_reigns_by_cngjl1986_dgetpv5-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI5MCIsInBhdGgiOiJcL2ZcLzU5ZjBmMGI3LWFjOWMtNGJiMy05NDdlLWJjMGUzYmU4Mzk4YVwvZGdldHB2NS1mZjM5MDM0NC01MGJiLTRjYWEtYTA0Yy1mZmY0ZTExN2Q5MWMuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.zPFxpdWIWNUdVf9o43-4ZX3Ms7dtsCfVLVU7I3WnZgg" },
       { name: "Fable Legends", developer: "dev_fable", image: "https://images.alphacoders.com/655/655398.jpg" },
-      { name: "Mortal Kombat 1", developer: "dev_mk", image: "https://cdn1.epicgames.com/offer/fda0f2b4047f46ffb4e94d5595c1468e/EGS_MortalKombat1PremiumEdition_NetherRealmStudios_Editions_S1_2560x1440-43d47cfc125118b13b26cea9c80ae15c" },
-      { name: "The Witcher 3", developer: "dev_witcher", image: "https://cdn.mos.cms.futurecdn.net/rjhoJx3c4TR8H5kXjYpUKm.jpg" },
-      { name: "Cyberpunk 2077", developer: "dev_cyberpunk", image: "https://cdn1.epicgames.com/offer/carousel/cyberpunk-2077_1200x1600-1200x1600-405c9c60e3c1c100d8e0baa36f60b955" },
+      { name: "Mortal Kombat 1", developer: "dev_mk", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwjM9SM0G7glXaIaBmq_ku015nsl1x8aVk7Rx19zafJQ&s%22 " },
+      { name: "The Witcher 3", developer: "dev_witcher", image: "https://th.bing.com/th/id/OIP.f0G0jQB0zlZRftE0hKNJ1AHaEK?w=261&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Cyberpunk 2077", developer: "dev_cyberpunk", image: "https://images.hdqwalls.com/wallpapers/cyberpunk-2077-art-2020-4k-f9.jpg" },
       { name: "Red Dead Redemption 2", developer: "dev_rdr2", image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" },
-      { name: "Horizon Zero Dawn", developer: "dev_horizon", image: "https://cdn1.epicgames.com/offer/carousel/HZD_1200x1600_1200x1600-4c0b5c5e0b3e5c0b5c5e0b3e5c0b5c5e" }
+      { name: "Horizon Zero Dawn", developer: "dev_horizon", image: "https://tse4.mm.bing.net/th/id/OIP.vTEr4FxJzzOQl3d8STy4mQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" }
     ]
   },
   popular: {
@@ -37,9 +37,9 @@ const gameCategories = {
       { name: "Undertale", developer: "dev_undertale", image: "https://www.kolpaper.com/wp-content/uploads/2020/05/Undertale-Wallpaper.jpg" },
       { name: "Hades", developer: "dev_hades", image: "https://store-images.s-microsoft.com/image/apps.48496.14093828725404571.e8c4fd85-da7e-4c33-9a85-c97c9f3eeb38.fde6f3ed-4a08-4bb8-8240-9cd19e049803" },
       { name: "Among Us", developer: "dev_amongus", image: "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg" },
-      { name: "Fall Guys", developer: "dev_fallguys", image: "https://cdn2.unrealengine.com/egs-fallguys-mediatonic-g1a-00-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080-1920x1080.jpg" },
-      { name: "Apex Legends", developer: "dev_apex", image: "https://cdn1.epicgames.com/offer/carousel/apex-legends_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
-      { name: "Rocket League", developer: "dev_rocket", image: "https://cdn1.epicgames.com/offer/carousel/rocket-league_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" }
+      { name: "Fall Guys", developer: "dev_fallguys", image:"https://th.bing.com/th/id/OIP.icjt1P_jB_XXYPKGoow0BAHaEK?w=246&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Apex Legends", developer: "dev_apex", image: "https://cdn.wccftech.com/wp-content/uploads/2019/02/apex-legends-keyart.jpg" },
+      { name: "Rocket League", developer: "dev_rocket", image: "https://tse1.mm.bing.net/th/id/OIP.TCMVV-8KBib7uX4L0TfYNwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" }
     ]
   },
   racing: {
@@ -67,9 +67,9 @@ const gameCategories = {
       { name: "Assassin's Creed", developer: "dev_ac", image: "https://tse3.mm.bing.net/th/id/OIP.MWv957MVXpqNhT3ayDZzNgHaKc?rs=1&pid=ImgDetMain&o=7&rm=3" },
       { name: "Elden Ring", developer: "dev_elden", image: "https://static.bandainamcoent.eu/high/elden-ring/elden-ring/00-page-setup/elden-ring-new-header-mobile.jpg" },
       { name: "Spider-Man", developer: "dev_spiderman", image: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/spider-man.jpeg" },
-      { name: "God of War", developer: "dev_gow", image: "https://image.api.playstation.com/vulcan/img/rnd/202010/2217/ax0V5TYMax06mLzmkWeQMiwH.jpg" },
-      { name: "Devil May Cry 5", developer: "dev_dmc5", image: "https://cdn1.epicgames.com/offer/carousel/devil-may-cry-5_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
-      { name: "Doom Eternal", developer: "dev_doom", image: "https://cdn1.epicgames.com/offer/carousel/doom-eternal_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
+      { name: "God of War", developer: "dev_gow", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQsJBA-exBL8FKX9hrQ9s4BzFY9scyVXJoA&s" },
+      { name: "Devil May Cry 5", developer: "dev_dmc5", image: "https://th.bing.com/th/id/OIP.y4UsVY04wgrac2cS-9LR_QHaEK?w=296&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+      { name: "Doom Eternal", developer: "dev_doom", image: "https://tse2.mm.bing.net/th/id/OIP.LOFSDvLWoQVRrJ2kwkcK9gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" },
       { name: "Sekiro", developer: "dev_sekiro", image: "https://cdn1.epicgames.com/offer/carousel/sekiro_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" },
       { name: "Dark Souls 3", developer: "dev_darksouls", image: "https://cdn1.epicgames.com/offer/carousel/dark-souls-3_1200x1600_1200x1600-1200x1600-1200x1600-1200x1600" }
     ]

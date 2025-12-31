@@ -578,6 +578,262 @@ body {
 }
 
 /* ============================================
+   SMOOTH SCROLLING
+   ============================================ */
+/* Enable smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   ABOUT PAGE STYLES
+   ============================================ */
+.about-section {
+  padding: 4rem 2rem;
+  min-height: 80vh;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.about-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #64b5f6;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 0.5rem;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #b0bec5;
+  margin-bottom: 1rem;
+}
+
+/* Features list styling */
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.feature-item {
+  background-color: #0d1929;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  border-color: #64b5f6;
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.feature-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #b0bec5;
+}
+
+/* How it works section */
+.how-it-works {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.step-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background-color: #0d1929;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #64b5f6;
+}
+
+.step-number {
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.step-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #b0bec5;
+}
+
+/* Benefits list */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.benefit-item {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #b0bec5;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background-color: #0d1929;
+  border-radius: 6px;
+  border-left: 3px solid #64b5f6;
+  padding-left: 1.5rem;
+}
+
+.benefit-item strong {
+  color: #64b5f6;
+}
+
+/* Call to action section */
+.cta-section {
+  background: linear-gradient(135deg, #0d1929, #1a2a3a);
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 3rem;
+  border: 2px solid #64b5f6;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: #b0bec5;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.cta-button.primary {
+  background-color: #64b5f6;
+  color: #ffffff;
+  border: 2px solid #64b5f6;
+}
+
+.cta-button.primary:hover {
+  background-color: #42a5f5;
+  border-color: #42a5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #64b5f6;
+  border: 2px solid #64b5f6;
+}
+
+.cta-button.secondary:hover {
+  background-color: #64b5f6;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive design for About page */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .step-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-number {
+    margin: 0 auto;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+}
+
+/* ============================================
    APP BAR STYLES (for common components)
    ============================================ */
 .app-bar {
